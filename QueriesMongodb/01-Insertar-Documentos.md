@@ -62,19 +62,3 @@ db.Alumnos.insertMany(
         nombre: "Flor", edad: 43 }, { _id:4, nombre: "Francisco Jesus Uriel", edad: 34, aficion: "El agua Bendita", desgracia: "La ex" } ]);
 
 ```
----
-
-# Operadores de Comparación
-
-| Operador | Descripción | 
-|-- | -- |
-| $eq | igual|
-| $gt | Mayor que |
-| $gte | Mayor o Igual |
-| $ in | Buscar un elemenit en array|
-| $it| Menor que|
-| $ lte| Menor o igual|
-| $ne | Todos los elementos que no sean iguales |
-| $nin | Ninguno de los valores del arreglo|
-
-
