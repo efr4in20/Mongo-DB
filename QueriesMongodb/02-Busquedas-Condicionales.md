@@ -77,3 +77,63 @@ db.libros.findOne({editorial:{$in:['Biblio','Planeta']}})
 ```m
 db.libros.findOne({})
 ```
+
+# Operadores lógicos
+
+| Operador | Descripcion | 
+|-- | -- |
+| $and | Operador And, Devuelve los documentos que cumplen todas las condiciones|
+| $or | Operador OR, Devuelve los documentos que cumplen alguna condicion|
+| $not | inverte el resultado de una condicion |
+| $nor | Devuelve los documentos que no cumplen las condiciones |
+| $exist | Devuelve los documentos que tengan un campo concreto |
+| $type|  Selecciona los documentos si un campo pertenece a un tipo especifico|
+
+### Operador AND
+
+**Sintaxis**
+```
+db.collection.find({Condicion1,Condicion2})
+```
+
+```
+db.colection.find({$and:[{Condicion1},{Condicion2}]})
+```
+_Seleccionar todos aqullos libros que valgan mas de 25 y cuya cantidad sea inferior a 15_
+
+```m
+db.libros.find({precio:{$gt:25},cantidad:{$lt:15}})
+```
+
+```m
+db.libros.find({$and:[{precio:{$gt:25}},{cantidad:{$lt:15}}]})
+```
+
+```m
+db.libros.find({$and:[{precio:{$gt:25}},{cantidad:{$lt:15}}, {editorial:{$eq:'Biblio'}}]})
+```
+
+### Operador OR
+
+**Sintaxis:**
+
+```m
+db.colection.find({$or:[{Condicion1},{Condicion2}]})
+```
+
+_Seleccionar todos aqullos libros que valgan mas de 25 o cuya cantidad sea inferior a 15_
+
+```m
+db.libros.find({$or:[{precio:{ $gt:25 }},{cantidad:{$lt:15}}]})
+```
+
+### OR y AND combinadas
+
+_Seleccionar los documentos de la editorial Biblio con precrio mayor a 40 o libros de la Editorial planeta con precio mayor a 30_
+
+```m
+db.libros.find(
+    {$or:
+    [{$and:[{editorial:'Biblio'}, {precio:{ $gt:40 }}]},
+    {$and:[{editorial:'Planeta'},{precio:{$gt:30}}]}]})
+```
