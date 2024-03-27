@@ -52,3 +52,28 @@ _Seleccionar todos aquellos documentos de la coleccion libros donde el precio se
 db.libros.find({precio: {$gt:25}})
 
 ```
+
+_Seleccionar aquellos documentos de la coleccion libros donde el precio sean mayores o iguales a 20_
+
+```m
+ db.libros.find({precio:{$gte:20}})
+```
+
+_Seleccionar aquellos documentos sea Biblio o Planeta_
+
+```m
+db.libros.find({editorial:{$in:['Biblio','Planeta']}})
+```
+
+## Recuperar una sola fila
+
+
+_Seleccionar aquellos documentos que sean biblio o planeta pero mostrando solamente el primer documento encontrado_
+
+```m
+db.libros.findOne({editorial:{$in:['Biblio','Planeta']}})
+```
+
+```m
+db.libros.findOne({})
+```
