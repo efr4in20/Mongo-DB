@@ -7,9 +7,9 @@
 | $eq | igual|
 | $gt | Mayor que |
 | $gte | Mayor o Igual |
-| $ in | Buscar un elemenit en array|
-| $it| Menor que|
-| $ lte| Menor o igual|
+| $in | Buscar un elemento en array|
+| $lt| Menor que|
+| $lte| Menor o igual|
 | $ne | Todos los elementos que no sean iguales |
 | $nin | Ninguno de los valores del arreglo|
 
@@ -99,7 +99,7 @@ db.collection.find({Condicion1,Condicion2})
 ```
 db.colection.find({$and:[{Condicion1},{Condicion2}]})
 ```
-_Seleccionar todos aqullos libros que valgan mas de 25 y cuya cantidad sea inferior a 15_
+_Seleccionar todos aquellos libros que valgan mas de 25 y cuya cantidad sea inferior a 15_
 
 ```m
 db.libros.find({precio:{$gt:25},cantidad:{$lt:15}})
@@ -121,7 +121,7 @@ db.libros.find({$and:[{precio:{$gt:25}},{cantidad:{$lt:15}}, {editorial:{$eq:'Bi
 db.colection.find({$or:[{Condicion1},{Condicion2}]})
 ```
 
-_Seleccionar todos aqullos libros que valgan mas de 25 o cuya cantidad sea inferior a 15_
+_Seleccionar todos aquellos libros que valgan mas de 25 o cuya cantidad sea inferior a 15_
 
 ```m
 db.libros.find({$or:[{precio:{ $gt:25 }},{cantidad:{$lt:15}}]})
@@ -137,3 +137,4 @@ db.libros.find(
     [{$and:[{editorial:'Biblio'}, {precio:{ $gt:40 }}]},
     {$and:[{editorial:'Planeta'},{precio:{$gt:30}}]}]})
 ```
+
